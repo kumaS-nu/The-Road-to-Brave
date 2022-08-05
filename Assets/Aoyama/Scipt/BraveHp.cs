@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BraveHp : MonoBehaviour
+public class BraveHp : MonoBehaviour, ICheere
 {
+    [Header("HPŠÖŒW")]
     [SerializeField]
     private int _initialHp = 100;
     [SerializeField]
@@ -13,8 +14,14 @@ public class BraveHp : MonoBehaviour
     private Text _currentHpText;
     [SerializeField]
     private Slider _hpSlider;
+    [Header("CheereŠÖŒW")]
+    [SerializeField]
+    int _damageDown = 1;
+    [SerializeField]
+    float _damageDownTime = 0.1f;
 
     private int _currentHp = 0;
+    private float _curreentDamageDown = 0;
 
     private void Start()
     {
@@ -23,6 +30,8 @@ public class BraveHp : MonoBehaviour
 
     private void Init()
     {
+        _curreentDamageDown = 0;
+
         _currentHp = _initialHp;
         _initialHptext!.text = _initialHp.ToString();
 
@@ -31,7 +40,7 @@ public class BraveHp : MonoBehaviour
 
     public void Damage(int damage)
     {
-        _currentHp -= damage;
+        _currentHp -= damage - _damageDown;
         UISet(_currentHp);
     }
 
@@ -39,6 +48,18 @@ public class BraveHp : MonoBehaviour
     {
         _currentHpText!.text = hp.ToString();
 
-        _hpSlider.value = hp / _initialHp;
+        _hpSlider.value = (float)hp / (float)_initialHp;
+    }
+
+    public void OnCheere()
+    {
+        StartCoroutine(DamageDownCor());
+    }
+
+    IEnumerator DamageDownCor()
+    {
+        _curreentDamageDown = _damageDown;
+        yield return new WaitForSeconds(_curreentDamageDown);
+        _curreentDamageDown = 0;
     }
 }
