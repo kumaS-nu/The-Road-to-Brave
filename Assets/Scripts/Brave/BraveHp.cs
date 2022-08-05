@@ -40,7 +40,8 @@ public class BraveHp : MonoBehaviour, ICheere
 
     public void Damage(int damage)
     {
-        var finalDamage = damage * _currentDamageDown;
+
+        var finalDamage = damage * Mathf.Clamp(_currentDamageDown,0.1f,1.0f);
         _currentHp -= (int)finalDamage;
         UISet(_currentHp);
     }
