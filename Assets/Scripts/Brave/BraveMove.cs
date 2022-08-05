@@ -49,7 +49,7 @@ public class BraveMove : MonoBehaviour, ICheere
         MoveTween = transform.DOLocalPath(pos, _roundTime, PathType.CatmullRom)
                     .SetEase(Ease.Linear)
                     .SetOptions(false, AxisConstraint.Z)
-                    .OnComplete(() => Move(pos));
+                    .SetLoops(-1);
     }
 
     public void SetRoundTime(float roundTime)
