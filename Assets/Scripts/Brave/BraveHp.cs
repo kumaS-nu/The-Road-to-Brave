@@ -21,7 +21,7 @@ public class BraveHp : MonoBehaviour, ICheere
     float _damageDownTime = 0.1f;
 
     private int _currentHp = 0;
-    private int _currentDamageDown = 0;
+    public float _currentDamageDown = 1.0f;
 
     private void Start()
     {
@@ -40,7 +40,8 @@ public class BraveHp : MonoBehaviour, ICheere
 
     public void Damage(int damage)
     {
-        _currentHp -= damage - _currentDamageDown;
+        var finalDamage = damage * _currentDamageDown;
+        _currentHp -= (int)finalDamage;
         UISet(_currentHp);
     }
 
