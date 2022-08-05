@@ -14,11 +14,17 @@ public class BraveHp : MonoBehaviour, ICheere
     private Text _currentHpText;
     [SerializeField]
     private Slider _hpSlider;
+    [SerializeField]
+    private Animator _animator;
+    [SerializeField]
+    private int _respawnTime = 4;
     [Header("CheereŠÖŒW")]
     [SerializeField]
     int _damageDown = 1;
     [SerializeField]
     float _damageDownTime = 0.1f;
+    [SerializeField]
+    BraveController _braveController;
 
     private int _currentHp = 0;
     public float _currentDamageDown = 1.0f;
@@ -44,6 +50,17 @@ public class BraveHp : MonoBehaviour, ICheere
         var finalDamage = damage * Mathf.Clamp(_currentDamageDown,0.1f,1.0f);
         _currentHp -= (int)finalDamage;
         UISet(_currentHp);
+        if(_currentHp <= 0)
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+        _animator.SetTrigger("Death");
+        _braveController!.BraveMove.Death();
+        StartCoroutine(Revive());
     }
 
     private void UISet(int hp)
@@ -63,5 +80,14 @@ public class BraveHp : MonoBehaviour, ICheere
         _currentDamageDown = _damageDown;
         yield return new WaitForSeconds(_damageDownTime);
         _currentDamageDown = 0;
+    }
+
+    IEnumerator Revive()
+    {
+        yield return new WaitForSeconds(_respawnTime);
+        _braveController!.BraveMove.Respawn();
+        _currentHp = _initialHp;
+        UISet(_initialHp);
+        _animator.SetTrigger("Revive");
     }
 }

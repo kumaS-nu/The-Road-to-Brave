@@ -14,7 +14,7 @@ public class BraveMove : MonoBehaviour, ICheere
     [SerializeField]
     private float _initialRoundTime = 15f;
     [SerializeField]
-    Transform[] _points;
+    Transform[] _movePoints;
     [SerializeField]
     Transform _mostLeftPositon;
     [SerializeField]
@@ -23,7 +23,8 @@ public class BraveMove : MonoBehaviour, ICheere
     SpriteRenderer _spriteRenderer;
 
     private float _roundTime = 0;
-
+    private List<Vector3> _points = new List<Vector3>();
+    private Vector3 _initPosition;
 
     private void Start()
     {
@@ -32,15 +33,27 @@ public class BraveMove : MonoBehaviour, ICheere
 
     private void Init()
     {
+        _initPosition = transform.position;
         _roundTime = _initialRoundTime;
 
-        List<Vector3> points = new List<Vector3>();
-        foreach (var point in _points)
+        foreach (var point in _movePoints)
         {
-            points.Add(point.position);
+            _points.Add(point.position);
         }
 
-        Move(points.ToArray());
+        Move(_points.ToArray());
+    }
+
+    public void Death()
+    {
+        MoveTween.Kill();
+    }
+
+    public void Respawn()
+    {
+        transform.position = _initPosition;
+        _spriteRenderer.flipX = true;
+        Move(_points.ToArray());
     }
 
     public Tween MoveTween;
