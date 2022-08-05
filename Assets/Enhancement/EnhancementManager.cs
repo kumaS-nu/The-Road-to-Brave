@@ -41,12 +41,11 @@ public class EnhancementManager : MonoBehaviour
         hpButton.OnClickAsObservable().Subscribe(_ => OnClickHPUpButton()).AddTo(this);
         hpButton.interactable = false;
 
-        hPText.text = $"Lv 1 -{stageState?.costTable[0]}";
-        enemyEnforceText.text = $"Lv 1 -{stageState?.costTable[0]}";
-        healText.text = $"Lv 1 -{stageState?.costTable[0]}";
-        cheerText.text = $"Lv 1 -{stageState?.costTable[0]}";
-        enemyNumText.text = $"Lv 1 -{stageState?.costTable[0]}";
-
+        hPText.text = $"Lv 1 <sprite=0>{stageState?.costTable[0]}";
+        enemyEnforceText.text = $"Lv 1 <sprite=0>{stageState?.costTable[0]}";
+        healText.text = $"Lv 1 <sprite=0>{stageState?.costTable[0]}";
+        cheerText.text = $"Lv 1 <sprite=0>{stageState?.costTable[0]}";
+        enemyNumText.text = $"Lv 1 <sprite=0>{stageState?.costTable[0]}";
     }
 
     private void Update()
