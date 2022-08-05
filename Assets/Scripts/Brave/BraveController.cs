@@ -8,4 +8,10 @@ public class BraveController : MonoBehaviour
     BraveHp _braveHp;
     [SerializeField]
     BraveMove _braveMove;
+
+    public void Cheere()
+    {
+        _braveHp.OnCheere();
+        _braveMove.OnCheere();
+    }
 }
