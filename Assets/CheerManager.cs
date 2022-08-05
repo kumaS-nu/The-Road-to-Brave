@@ -8,14 +8,15 @@ using System;
 public class CheerManager : MonoBehaviour
 {
     [SerializeField] private Button cheerButton;
-    [SerializeField] private BraveMove braveMove; 
+    [SerializeField] private BraveMove braveMove;
+    [SerializeField] private BraveHp braveHp;
 
     //player の変数に変更する必要あり
     public float speed;
     public float damageCut;
 
     public float speedUpAmount = 0.1f;
-    public float damageReduceAmount = 0.1f;
+    public float damageReduceAmount = 0.05f;
     public float cheerDuration = 1.0f;
 
     private void Start()
@@ -25,8 +26,11 @@ public class CheerManager : MonoBehaviour
             {
                 braveMove.MoveTween.timeScale +=speedUpAmount;
             }
-            damageCut += damageReduceAmount;
 
+            if(braveHp != null)
+            {
+                braveHp._currentDamageDown -= damageReduceAmount;
+            }
         })
         .Delay(TimeSpan.FromSeconds(1.0f))
         .Subscribe(_ => {
@@ -34,7 +38,11 @@ public class CheerManager : MonoBehaviour
             {
                 braveMove.MoveTween.timeScale -= speedUpAmount;
             }
-            damageCut -= damageReduceAmount;
+
+            if (braveHp != null)
+            {
+                braveHp._currentDamageDown -= damageReduceAmount;
+            }
         })
         .AddTo(this);
     }
