@@ -8,6 +8,7 @@ using System;
 public class CheerManager : MonoBehaviour
 {
     [SerializeField] private Button cheerButton;
+    [SerializeField] private BraveMove braveMove; 
 
     //player の変数に変更する必要あり
     public float speed;
@@ -20,13 +21,20 @@ public class CheerManager : MonoBehaviour
     private void Start()
     {
         cheerButton.OnClickAsObservable().Do(_ => {
+            if(braveMove.MoveTween != null)
+            {
+                braveMove.MoveTween.timeScale +=speedUpAmount;
+            }
             damageCut += damageReduceAmount;
-            speed += speedUpAmount;
+
         })
         .Delay(TimeSpan.FromSeconds(1.0f))
         .Subscribe(_ => {
+            if (braveMove.MoveTween != null)
+            {
+                braveMove.MoveTween.timeScale -= speedUpAmount;
+            }
             damageCut -= damageReduceAmount;
-            speed -= speedUpAmount;
         })
         .AddTo(this);
     }

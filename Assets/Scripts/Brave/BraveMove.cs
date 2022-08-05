@@ -43,7 +43,7 @@ public class BraveMove : MonoBehaviour, ICheere
         Move(points.ToArray());
     }
 
-    private Tween MoveTween;
+    public Tween MoveTween;
     private void Move(Vector3[] pos)
     {
         MoveTween = transform.DOLocalPath(pos, _roundTime, PathType.CatmullRom)
