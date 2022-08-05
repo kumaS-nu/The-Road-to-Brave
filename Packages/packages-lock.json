@@ -1,5 +1,17 @@
 {
   "dependencies": {
+    "com.unity.2d.tilemap": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    "com.cysharp.unitask": {
+      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "9b95f3b9f66f0b5d238e0bade6e58aeebb05803f"
+    },
     "com.neuecc.unirx": {
       "version": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts",
       "depth": 0,
@@ -176,6 +188,12 @@
       "source": "git",
       "dependencies": {},
       "hash": "dd1cab5b9c082ef6b89551d95ddf09bca2eabf1d"
+    },
+    "org.nuget.mathnet.numerics": {
+      "version": "file:MathNet.Numerics",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
