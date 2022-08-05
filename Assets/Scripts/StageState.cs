@@ -28,7 +28,7 @@ public sealed class StageState
     public Dictionary<EnhancementContent, int> EnhancementLevel { get; private set; }
 
     [SerializeField]
-    private readonly List<long> costTable = new()
+    public readonly List<long> costTable = new()
     { 
         1000,
         10000,

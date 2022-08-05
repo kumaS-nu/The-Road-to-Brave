@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
+using TMPro;
 
 public class EnhancementManager : MonoBehaviour
 {
@@ -11,6 +12,13 @@ public class EnhancementManager : MonoBehaviour
     [SerializeField] private Button hpButton;
     [SerializeField] private Button enemyNumButton;
     [SerializeField] private Button cheerButton;
+
+    [SerializeField] private TextMeshProUGUI hPText;
+    [SerializeField] private TextMeshProUGUI enemyEnforceText;
+    [SerializeField] private TextMeshProUGUI healText;
+    [SerializeField] private TextMeshProUGUI enemyNumText;
+    [SerializeField] private TextMeshProUGUI cheerText;
+
 
 
     private StageState stageState;
@@ -32,6 +40,12 @@ public class EnhancementManager : MonoBehaviour
 
         hpButton.OnClickAsObservable().Subscribe(_ => OnClickHPUpButton()).AddTo(this);
         hpButton.interactable = false;
+
+        hPText.text = $"Lv 1 -{stageState?.costTable[0]}";
+        enemyEnforceText.text = $"Lv 1 -{stageState?.costTable[0]}";
+        healText.text = $"Lv 1 -{stageState?.costTable[0]}";
+        cheerText.text = $"Lv 1 -{stageState?.costTable[0]}";
+        enemyNumText.text = $"Lv 1 -{stageState?.costTable[0]}";
 
     }
 
@@ -68,28 +82,39 @@ public class EnhancementManager : MonoBehaviour
     {
         stageState?.UpgradeEnhancement(EnhancementContent.Heal);
         healButton.interactable = false;
+        var level = stageState?.EnhancementLevel[EnhancementContent.Heal];
+        healText.text = $"Lv {level+1} -{stageState?.costTable[(int)level]}";
+
     }
 
     private void OnClickEnemyEnforceButton()
     {
         stageState?.UpgradeEnhancement(EnhancementContent.EnemyStrength);
         enemyEnforceButton.interactable = false;
+        var level = stageState?.EnhancementLevel[EnhancementContent.EnemyStrength];
+        enemyEnforceText.text = $"Lv {level + 1} -{stageState?.costTable[(int)level]}";
     }
     private void OnClickEnemyNumButton()
     {
         stageState?.UpgradeEnhancement(EnhancementContent.EnemyEncount);
         enemyNumButton.interactable = false;
+        var level = stageState?.EnhancementLevel[EnhancementContent.EnemyEncount];
+        enemyNumText.text = $"Lv {level + 1} -{stageState?.costTable[(int)level]}";
     }
 
     private void OnClickHPUpButton()
     {
         stageState?.UpgradeEnhancement(EnhancementContent.Armor);
         hpButton.interactable = false;
+        var level = stageState?.EnhancementLevel[EnhancementContent.Armor];
+        hPText.text = $"Lv {level + 1} -{stageState?.costTable[(int)level]}";
     }
 
     private void OnClickCheerButton()
     {
         stageState?.UpgradeEnhancement(EnhancementContent.Cheer);
         cheerButton.interactable = false;
+        var level = stageState?.EnhancementLevel[EnhancementContent.Cheer];
+        cheerText.text = $"Lv {level + 1} -{stageState?.costTable[(int)level]}";
     }
 }
