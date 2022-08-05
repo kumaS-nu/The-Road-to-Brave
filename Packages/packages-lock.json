@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.neuecc.unirx": {
+      "version": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "284d5c50d3f1ddd9fa7df3d382ea904732a9c2ff"
+    },
     "com.unity.burst": {
       "version": "1.6.6",
       "depth": 1,
@@ -113,7 +120,7 @@
       }
     },
     "com.unity.test-framework": {
-      "version": "1.1.31",
+      "version": "1.1.33",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -162,6 +169,13 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "org.kumas.nuget-importer": {
+      "version": "https://github.com/kumaS-nu/NuGet-importer-for-Unity.git?path=NuGetImporterForUnity/Packages/NuGet Importer",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "dd1cab5b9c082ef6b89551d95ddf09bca2eabf1d"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
