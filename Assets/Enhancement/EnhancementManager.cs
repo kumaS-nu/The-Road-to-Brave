@@ -18,19 +18,19 @@ public class EnhancementManager : MonoBehaviour
     {
         stageState = StageState.Instance;
 
-        healButton.onClick.AddListener(OnClickHealButton);
+        healButton.OnClickAsObservable().Subscribe(_=>OnClickHealButton()).AddTo(this);
         healButton.interactable = false;
 
-        enemyEnforceButton.onClick.AddListener(OnClickEnemyEnforceButton);
+        enemyEnforceButton.OnClickAsObservable().Subscribe(_ => OnClickEnemyEnforceButton()).AddTo(this);
         enemyEnforceButton.interactable = false;
 
-        enemyNumButton.onClick.AddListener(OnClickEnemyNumButton);
+        enemyNumButton.OnClickAsObservable().Subscribe(_ => OnClickEnemyNumButton()).AddTo(this);
         enemyNumButton.interactable = false;
 
-        cheerButton.onClick.AddListener(OnClickCheerButton);
+        cheerButton.OnClickAsObservable().Subscribe(_ => OnClickCheerButton()).AddTo(this);
         cheerButton.interactable = false;
 
-        hpButton.onClick.AddListener(OnClickHPUpButton);
+        hpButton.OnClickAsObservable().Subscribe(_ => OnClickHPUpButton()).AddTo(this);
         hpButton.interactable = false;
 
     }
@@ -91,14 +91,5 @@ public class EnhancementManager : MonoBehaviour
     {
         stageState?.UpgradeEnhancement(EnhancementContent.Cheer);
         cheerButton.interactable = false;
-    }
-
-    private void OnDestroy()
-    {
-        healButton.onClick.RemoveListener(OnClickHealButton);
-        enemyEnforceButton.onClick.RemoveListener(OnClickEnemyNumButton);
-        enemyNumButton.onClick.RemoveListener(OnClickEnemyNumButton);
-        hpButton.onClick.RemoveListener(OnClickHPUpButton);
-        cheerButton.onClick.RemoveListener(OnClickCheerButton);
     }
 }
