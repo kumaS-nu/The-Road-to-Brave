@@ -24,6 +24,7 @@ public class BraveMove : MonoBehaviour, ICheere
 
     private float _roundTime = 0;
 
+
     private void Start()
     {
         Init();
@@ -42,10 +43,10 @@ public class BraveMove : MonoBehaviour, ICheere
         Move(points.ToArray());
     }
 
-    private Tween _tween;
+    private Tween MoveTween;
     private void Move(Vector3[] pos)
     {
-        _tween = transform.DOLocalPath(pos, _roundTime, PathType.CatmullRom)
+        MoveTween = transform.DOLocalPath(pos, _roundTime, PathType.CatmullRom)
                     .SetEase(Ease.Linear)
                     .SetOptions(false, AxisConstraint.Z)
                     .OnComplete(() => Move(pos));
@@ -60,7 +61,12 @@ public class BraveMove : MonoBehaviour, ICheere
     {
         if (Vector3.Distance(transform.position, _mostLeftPositon.position) <= 0.4)
         {
+            _spriteRenderer.flipX = false;
+        }
 
+        if (Vector3.Distance(transform.position, _mostRightPositon.position) <= 0.4)
+        {
+            _spriteRenderer.flipX = true;
         }
     }
 
@@ -71,8 +77,8 @@ public class BraveMove : MonoBehaviour, ICheere
 
     IEnumerator SpeedUpCor()
     {
-        _tween.timeScale = _speedUpScale;
+        MoveTween.timeScale = _speedUpScale;
         yield return new WaitForSeconds(_speedUpTime);
-        _tween.timeScale = default;
+        MoveTween.timeScale = 1;
     }
 }
