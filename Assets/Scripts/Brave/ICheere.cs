@@ -1,0 +1,4 @@
+interface ICheere
+{
+    void OnCheere();
+}
