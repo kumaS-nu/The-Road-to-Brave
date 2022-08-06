@@ -45,7 +45,7 @@ public class BraveHittable : MonoBehaviour
     {
 
         
-        var value = StageState.Instance.damageTable[StageState.Instance.EnhancementLevel[EnhancementContent.Heal]];
+        var value = StageState.Instance.healTable[StageState.Instance.EnhancementLevel[EnhancementContent.Heal]];
         
         Destroy(collision.gameObject);
 
