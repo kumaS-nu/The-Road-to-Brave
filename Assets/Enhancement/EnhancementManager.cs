@@ -22,6 +22,8 @@ public class EnhancementManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI enemyNumText;
     [SerializeField] private TextMeshProUGUI cheerText;
 
+    [SerializeField] private List<GameObject> lawnList;
+
     private bool healMax = false;
     private bool enemyEnforceMax = false;
     private bool hPMax = false;
@@ -56,6 +58,11 @@ public class EnhancementManager : MonoBehaviour
         healText.text = $"Lv 1 <sprite=0>{stageState?.costTable[0]}";
         cheerText.text = $"Lv 1 <sprite=0>{stageState?.costTable[0]}";
         enemyNumText.text = $"Lv 1 <sprite=0>{stageState?.costTable[0]}";
+
+        foreach(var lawn in lawnList)
+        {
+            lawn.gameObject.SetActive(false);
+        }
     }
 
     private void Update()
@@ -93,6 +100,7 @@ public class EnhancementManager : MonoBehaviour
         healButton.interactable = false;
         var level = stageState?.EnhancementLevel[EnhancementContent.Heal];
         healText.text = $"Lv {level+1} <sprite=0>{stageState?.costTable[(int)level]}";
+        lawnList[(int)level - 1].gameObject.SetActive(true);
         if (level > maxLevel)
         {
             healMax = true;

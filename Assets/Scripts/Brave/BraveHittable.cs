@@ -36,7 +36,8 @@ public class BraveHittable : MonoBehaviour
 
     private void Heal(Collision2D collision)
     {
-        var value = collision.gameObject.GetComponent<HealItem>().HealValue;
+
+        var value = (StageState.Instance.EnhancementLevel[EnhancementContent.Heal] + 1) * 3;
         Destroy(collision.gameObject);
 
         _braveHp!.Heal(value);
