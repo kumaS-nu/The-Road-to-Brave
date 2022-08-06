@@ -77,6 +77,7 @@ public class BraveHp : MonoBehaviour, ICheere
 
     private void Death()
     {
+        gameObject.layer = LayerMask.NameToLayer("God");
         _deathSound?.Play();
         _animator.SetTrigger("Death");
         _braveController!.BraveMove.Death();
@@ -114,9 +115,11 @@ public class BraveHp : MonoBehaviour, ICheere
     IEnumerator Revive()
     {
         yield return new WaitForSeconds(_respawnTime);
-        _braveController!.BraveMove.Respawn();
+        Debug.Log("Revive");
         _currentHp = _initialHp;
         UISet(_initialHp);
+        _braveController.BraveMove.Respawn();
+        gameObject.layer = LayerMask.NameToLayer("Default");
         _animator.SetTrigger("Revive");
     }
 }
