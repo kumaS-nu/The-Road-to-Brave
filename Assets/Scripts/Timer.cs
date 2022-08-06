@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// 経過時間計測＆表示用スクリプト．
@@ -11,7 +12,7 @@ public class Timer : MonoBehaviour
     public TimeSpan ElapsedTime { get => DateTime.Now - m_startTime; }
 
     [SerializeField]
-    private TextMesh textMesh;
+    private TextMeshProUGUI textMesh;
 
     private DateTime m_startTime;
 
@@ -31,6 +32,6 @@ public class Timer : MonoBehaviour
 
     public override string ToString()
     {
-        return ElapsedTime.ToString("g");
+        return ElapsedTime.ToString("hh\\:mm\\:ss\\.f");
     }
 }
