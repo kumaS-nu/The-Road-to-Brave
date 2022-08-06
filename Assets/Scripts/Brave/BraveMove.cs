@@ -94,8 +94,8 @@ public class BraveMove : MonoBehaviour, ICheere
 
     IEnumerator SpeedUpCor()
     {
-        MoveTween.timeScale = _speedUpScale;
+        MoveTween!.timeScale = _speedUpScale;
         yield return new WaitForSeconds(_speedUpTime);
-        MoveTween.timeScale = 1;
+        MoveTween!.timeScale = 1;
     }
 }
