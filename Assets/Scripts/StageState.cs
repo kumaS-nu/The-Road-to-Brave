@@ -69,6 +69,15 @@ public sealed class StageState
     }
 
     /// <summary>
+    /// 勇者が死んだときに所持金を半分にする
+    /// </summary>
+    public void BraveDeath()
+    {
+        Money /= 2;
+        Debug.Log("lost half money : " + Money);
+    }
+
+    /// <summary>
     /// 強化のレベルアップが利用可能か．
     /// </summary>
     /// <param name="enhancement">問い合わせるレベルアップ．</param>
