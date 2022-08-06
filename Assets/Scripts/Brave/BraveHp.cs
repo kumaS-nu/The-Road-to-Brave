@@ -44,9 +44,15 @@ public class BraveHp : MonoBehaviour, ICheere
         UISet(_currentHp);
     }
 
+    public void Heal(int heal)
+    {
+        var finalHeal = Mathf.Min(_initialHp, _initialHp + heal);
+        _currentHp = finalHeal;
+        UISet(_currentHp);
+    }
+
     public void Damage(int damage)
     {
-
         var finalDamage = damage * Mathf.Clamp(_currentDamageDown,0.1f,1.0f);
         _currentHp -= (int)finalDamage;
         UISet(_currentHp);
