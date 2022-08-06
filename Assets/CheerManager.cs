@@ -12,11 +12,14 @@ public class CheerManager : MonoBehaviour
     [SerializeField] private BraveHp braveHp;
 
     [SerializeField] private TextMeshProUGUI cheerButtonText;
+    [SerializeField] private RectTransform audiences;
 
     private float speedUpAmount = 0.1f;
     private float damageReduceAmount = 0.02f;
     private float cheerDuration = 1.0f;
 
+    private int clickNum = 0;
+    private int clickMax = 7;
     private void Start()
     {
         cheerButton.OnClickAsObservable().Do(_ => {
@@ -29,6 +32,7 @@ public class CheerManager : MonoBehaviour
             {
                 braveHp._currentDamageDown -= damageReduceAmount;
             }
+            clickNum++;
         })
         .Delay(TimeSpan.FromSeconds(1.0f))
         .Subscribe(_ => {
@@ -41,12 +45,19 @@ public class CheerManager : MonoBehaviour
             {
                 braveHp._currentDamageDown += damageReduceAmount;
             }
+            clickNum--;
         })
         .AddTo(this);
     }
+
+
     private void Update()
     {
-        Debug.Log(braveHp._currentDamageDown);
+        var value = clickNum / (float)clickMax;
+        var posY = Mathf.Lerp(-250f, -150f, value);
+        Vector3 pos = audiences.anchoredPosition;
+        pos.y = posY;
+        audiences.anchoredPosition = pos;
     }
 
 
@@ -63,6 +74,6 @@ public class CheerManager : MonoBehaviour
         speedUpAmount += 0.1f;
         damageReduceAmount += 0.01f;
         cheerButton.interactable = true;
-        cheerButtonText.text = "Clik to cheer your Hero!";
+        cheerButtonText.text = "Click to cheer your Hero!";
     }
 }

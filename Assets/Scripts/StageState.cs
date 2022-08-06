@@ -45,7 +45,7 @@ public sealed class StageState
 
     public StageState()
     {
-        Money = 0;
+        Money = 6667776666666;
         EnhancementLevel = new Dictionary<EnhancementContent, int>();
         foreach(EnhancementContent content in Enum.GetValues(typeof(EnhancementContent)))
         {

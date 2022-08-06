@@ -21,6 +21,8 @@ public class BraveMove : MonoBehaviour, ICheere
     Transform _mostRightPositon;
     [SerializeField]
     SpriteRenderer _spriteRenderer;
+    [SerializeField]
+    SpawnPortion _spawnPortion;
 
     private float _roundTime = 0;
     private List<Vector3> _points = new List<Vector3>();
@@ -46,6 +48,7 @@ public class BraveMove : MonoBehaviour, ICheere
 
     public void Death()
     {
+        Debug.Log("kill");
         MoveTween.Kill();
     }
 
@@ -60,9 +63,11 @@ public class BraveMove : MonoBehaviour, ICheere
     private void Move(Vector3[] pos)
     {
         MoveTween = transform.DOLocalPath(pos, _roundTime, PathType.CatmullRom)
+                    .OnPlay(() => _spawnPortion.Spawn())
                     .SetEase(Ease.Linear)
                     .SetOptions(false, AxisConstraint.Z)
-                    .SetLoops(-1);
+                    .SetLoops(-1)
+                    .OnStepComplete(() => _spawnPortion.Spawn());
     }
 
     public void SetRoundTime(float roundTime)

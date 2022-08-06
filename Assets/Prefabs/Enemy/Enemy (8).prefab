@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3097646273460217502}
   - component: {fileID: 6916325668688918184}
   - component: {fileID: 7730178759058721536}
+  - component: {fileID: 7162883294338233757}
   m_Layer: 0
   m_Name: Enemy (8)
   m_TagString: Enemy
@@ -118,7 +119,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -136,5 +137,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b719feae56a93449f2420e70e3e21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Money: 1000
+  GetMoney: 1000
   DamageValue: 5
+--- !u!114 &7162883294338233757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3911533826304520088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63731eff425e6d640adaa9d459fa2cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

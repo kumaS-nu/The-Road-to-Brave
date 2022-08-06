@@ -25,6 +25,15 @@ public class BraveHp : MonoBehaviour, ICheere
     float _damageDownTime = 0.1f;
     [SerializeField]
     BraveController _braveController;
+    [Header("ƒTƒEƒ“ƒh")]
+    [SerializeField]
+    AudioSource _deathSound;
+    [SerializeField]
+    AudioSource _damageSound;
+    [SerializeField]
+    AudioSource _attackSound;
+    [SerializeField]
+    AudioSource _healSound;
 
     private int _currentHp = 0;
     public float _currentDamageDown = 1.0f;
@@ -46,6 +55,7 @@ public class BraveHp : MonoBehaviour, ICheere
 
     public void Heal(int heal)
     {
+        _healSound?.Play();
         var finalHeal = Mathf.Min(_initialHp, _initialHp + heal);
         _currentHp = finalHeal;
         UISet(_currentHp);
@@ -53,6 +63,9 @@ public class BraveHp : MonoBehaviour, ICheere
 
     public void Damage(int damage)
     {
+        _damageSound?.Play();
+        _attackSound?.Play();
+
         var finalDamage = damage * Mathf.Clamp(_currentDamageDown,0.1f,1.0f);
         _currentHp -= (int)finalDamage;
         UISet(_currentHp);
@@ -64,6 +77,8 @@ public class BraveHp : MonoBehaviour, ICheere
 
     private void Death()
     {
+        gameObject.layer = LayerMask.NameToLayer("God");
+        _deathSound?.Play();
         _animator.SetTrigger("Death");
         _braveController!.BraveMove.Death();
         StartCoroutine(Revive());
@@ -100,9 +115,11 @@ public class BraveHp : MonoBehaviour, ICheere
     IEnumerator Revive()
     {
         yield return new WaitForSeconds(_respawnTime);
-        _braveController!.BraveMove.Respawn();
+        Debug.Log("Revive");
         _currentHp = _initialHp;
         UISet(_initialHp);
+        _braveController.BraveMove.Respawn();
+        gameObject.layer = LayerMask.NameToLayer("Default");
         _animator.SetTrigger("Revive");
     }
 }
