@@ -5,11 +5,14 @@ using UnityEngine.UI;
 using UniRx;
 using System;
 using TMPro;
+using Cysharp.Threading.Tasks;
+
+/// <summary>
+/// 応援ボタンに関することを取り扱う．
+/// </summary>
 public class CheerManager : MonoBehaviour
 {
     [SerializeField] private Button cheerButton;
-    [SerializeField] private BraveMove braveMove;
-    [SerializeField] private BraveHp braveHp;
 
     [SerializeField] private TextMeshProUGUI cheerButtonText;
     [SerializeField] private RectTransform audiences;
@@ -17,40 +20,19 @@ public class CheerManager : MonoBehaviour
     [SerializeField] private ParticleSystem particle;
     [SerializeField] private ParticleSystem particle2;
 
-    private float speedUpAmount = 0.1f;
-    private float damageReduceAmount = 0.03f;
-    private float cheerDuration = 1.0f;
+    [SerializeField] private float cheerDuration = 1.0f;
 
-    private int clickNum = 0;
-    private int clickMax = 7;
+    private int m_cpm = 0;
     private void Start()
     {
         cheerButton.OnClickAsObservable().Do(_ => {
-            if(braveMove.MoveTween != null)
-            {
-                braveMove.MoveTween.timeScale +=speedUpAmount;
-            }
-
-            if(braveHp != null)
-            {
-                braveHp._currentDamageDown -= damageReduceAmount;
-            }
-            clickNum++;
+            m_cpm++;
             particle.Play();
             particle2.Play();
         })
         .Delay(TimeSpan.FromSeconds(1.0f))
         .Subscribe(_ => {
-            if (braveMove.MoveTween != null)
-            {
-                braveMove.MoveTween.timeScale -= speedUpAmount;
-            }
-
-            if (braveHp != null)
-            {
-                braveHp._currentDamageDown += damageReduceAmount;
-            }
-            clickNum--;
+            m_cpm--;
         })
         .AddTo(this);
     }
@@ -58,26 +40,23 @@ public class CheerManager : MonoBehaviour
 
     private void Update()
     {
-        var value = clickNum / (float)clickMax;
-        var posY = Mathf.Lerp(-250f, -150f, value);
+        var posY = Mathf.Lerp(-250f, -150f, GetCheerPower());
         Vector3 pos = audiences.anchoredPosition;
         pos.y = posY;
         audiences.anchoredPosition = pos;
     }
 
+    public float GetCheerPower()
+    {
+        return 1 - Mathf.Exp(-m_cpm * 0.2f);
+    }
 
-    public void OnClikCheerLevelUp()
+
+    public async void OnClikCheerLevelUp()
     {
         cheerButtonText.text = "Cheer Level Up!!!";
         cheerButton.interactable = false;
-        StartCoroutine(nameof(EnableCheerButton));
-    }
-
-    private IEnumerator EnableCheerButton()
-    {
-        yield return new WaitForSeconds(1.0f);
-        speedUpAmount += 0.1f;
-        damageReduceAmount += 0.02f;
+        await UniTask.Delay(1000);
         cheerButton.interactable = true;
         cheerButtonText.text = "Click to cheer your Hero!";
     }

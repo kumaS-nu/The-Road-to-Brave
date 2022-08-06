@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class BraveMove : MonoBehaviour, ICheere
+public class BraveMove : MonoBehaviour
 {
     [Header("‰ž‰‡ŠÖŒW")]
     [SerializeField]
     private float _speedUpTime = 0.1f;
     [SerializeField]
     private float _speedUpScale = 1.2f;
+    [SerializeField]
+    private BraveHp _braveHp;
+    [SerializeField]
+    private CheerManager _cheerManager;
     [Header("ˆÚ“®ŠÖŒW")]
     [SerializeField]
     private float _initialRoundTime = 15f;
@@ -27,6 +31,7 @@ public class BraveMove : MonoBehaviour, ICheere
     private float _roundTime = 0;
     private List<Vector3> _points = new List<Vector3>();
     private Vector3 _initPosition;
+    private bool _beforeAllived = true;
 
     private void Start()
     {
@@ -85,17 +90,10 @@ public class BraveMove : MonoBehaviour, ICheere
         {
             _spriteRenderer.flipX = true;
         }
-    }
 
-    public void OnCheere()
-    {
-        StartCoroutine(SpeedUpCor());
-    }
-
-    IEnumerator SpeedUpCor()
-    {
-        MoveTween!.timeScale = _speedUpScale;
-        yield return new WaitForSeconds(_speedUpTime);
-        MoveTween!.timeScale = 1;
+        if (_braveHp.IsLive)
+        {
+            MoveTween.timeScale = 1 + (0.2f + 0.1f * StageState.Instance.EnhancementLevel[EnhancementContent.Cheer]) * _cheerManager.GetCheerPower();
+        }
     }
 }

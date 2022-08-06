@@ -1,9 +1,11 @@
+using Cysharp.Threading.Tasks;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BraveHp : MonoBehaviour, ICheere
+public class BraveHp : MonoBehaviour
 {
     [Header("HP関係")]
     [SerializeField]
@@ -20,11 +22,10 @@ public class BraveHp : MonoBehaviour, ICheere
     private int _respawnTime = 4;
     [Header("Cheere関係")]
     [SerializeField]
-    int _damageDown = 1;
+    private CheerManager _cheerManager;
+    [Header("動きへの参照")]
     [SerializeField]
-    float _damageDownTime = 0.1f;
-    [SerializeField]
-    BraveController _braveController;
+    private BraveMove _braveMove;
     [Header("サウンド")]
     [SerializeField]
     AudioSource _deathSound;
@@ -38,9 +39,12 @@ public class BraveHp : MonoBehaviour, ICheere
     private int _currentHp = 0;
     public float _currentDamageDown = 1.0f;
 
+    public bool IsLive { get; private set; } =  true;
+
     private void Start()
     {
         Init();
+        _ = GetGuardLoop();
     }
 
     private void Init()
@@ -48,14 +52,14 @@ public class BraveHp : MonoBehaviour, ICheere
         _currentDamageDown = 1.0f;
 
         _currentHp = _initialHp;
-        _initialHptext!.text = _initialHp.ToString();
+        _initialHptext.text = _initialHp.ToString();
 
         UISet(_currentHp);
     }
 
     public void Heal(int heal)
     {
-        _healSound?.Play();
+        _healSound.Play();
         var finalHeal = Mathf.Min(_initialHp, _currentHp + heal);
         _currentHp = finalHeal;
         UISet(_currentHp);
@@ -63,66 +67,63 @@ public class BraveHp : MonoBehaviour, ICheere
 
     public void Damage(int damage)
     {
-        _damageSound?.Play();
-        _attackSound?.Play();
+        _damageSound.Play();
+        _attackSound.Play();
 
-        var finalDamage = damage * Mathf.Clamp(_currentDamageDown,0.1f,1.0f);
+        var finalDamage = damage * _currentDamageDown;
         _currentHp -= (int)finalDamage;
         UISet(_currentHp);
         if(_currentHp <= 0)
         {
-            Death();
+            _ = Death();
         }
     }
 
-    private void Death()
+    private async UniTask Death()
     {
         gameObject.layer = LayerMask.NameToLayer("God");
         StageState.Instance.BraveDeath();
-        _deathSound?.Play();
+        _deathSound.Play();
+        _braveMove.Death();
+        IsLive = false;
         _animator.SetTrigger("Death");
-        _braveController!.BraveMove.Death();
-        StartCoroutine(Revive());
+        await UniTask.Delay(_respawnTime * 1000);
+        Debug.Log("Revive");
+        _currentHp = _initialHp;
+        UISet(_initialHp);
+        IsLive = true;
+        _braveMove.Respawn();
+        _ = GetGuardLoop();
+        gameObject.layer = LayerMask.NameToLayer("Default");
+        _animator.SetTrigger("Revive");
     }
 
     private void UISet(int hp)
     {
         _currentHpText!.text = hp.ToString();
 
-        _hpSlider.value = (float)hp / (float)_initialHp;
+        _hpSlider.value = (float)hp / _initialHp;
     }
 
     public void HpUpdate()
     {
-
         var temp = _initialHp;
         _initialHp = StageState.Instance.HPTable[StageState.Instance.EnhancementLevel[EnhancementContent.Armor]];
         _initialHptext!.text = _initialHp.ToString();
         _currentHp += _initialHp - temp;
         _currentHpText!.text = _currentHp.ToString();
-        _hpSlider.value = (float)_currentHp / (float)_initialHp;
+        _hpSlider.value = (float)_currentHp / _initialHp;
     }
 
-    public void OnCheere()
+    private async UniTask GetGuardLoop()
     {
-        StartCoroutine(DamageDownCor());
+        while (IsLive)
+        {
+            //Max -0.5 to -0.5 * 0.6, -0.5 * 0.6 * 0.6 ...
+            _currentDamageDown = 1 - _cheerManager.GetCheerPower() * (1 - Mathf.Exp(-0.7f - 0.5f * StageState.Instance.EnhancementLevel[EnhancementContent.Cheer]));
+            await UniTask.Yield();
+        }
     }
 
-    IEnumerator DamageDownCor()
-    {
-        _currentDamageDown = _damageDown;
-        yield return new WaitForSeconds(_damageDownTime);
-        _currentDamageDown = 0;
-    }
-
-    IEnumerator Revive()
-    {
-        yield return new WaitForSeconds(_respawnTime);
-        Debug.Log("Revive");
-        _currentHp = _initialHp;
-        UISet(_initialHp);
-        _braveController.BraveMove.Respawn();
-        gameObject.layer = LayerMask.NameToLayer("Default");
-        _animator.SetTrigger("Revive");
-    }
+    // 相互参照したくないけど...UniRx使えば無くせるだろうけどそもそもそれぞれ密にやりとりするこの設計が悪い．
 }
