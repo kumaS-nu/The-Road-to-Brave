@@ -15,7 +15,7 @@ public class CheerManager : MonoBehaviour
     [SerializeField] private RectTransform audiences;
 
     private float speedUpAmount = 0.1f;
-    private float damageReduceAmount = 0.02f;
+    private float damageReduceAmount = 0.03f;
     private float cheerDuration = 1.0f;
 
     private int clickNum = 0;
@@ -72,7 +72,7 @@ public class CheerManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         speedUpAmount += 0.1f;
-        damageReduceAmount += 0.01f;
+        damageReduceAmount += 0.02f;
         cheerButton.interactable = true;
         cheerButtonText.text = "Click to cheer your Hero!";
     }

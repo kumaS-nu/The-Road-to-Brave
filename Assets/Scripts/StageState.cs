@@ -31,7 +31,7 @@ public sealed class StageState
     public readonly List<long> costTable = new()
     { 
         1000,
-        10000,
+        5000,
         100000,
         1000000,
         10000000,
@@ -47,48 +47,64 @@ public sealed class StageState
     public readonly List<int> damageTable = new()
     {
         5,
-        10,
-        15,
         20,
-        25,
-        30,
-        35,
-        40,
-        45,
         50,
-        55
+        150,
+        500,
+        1500,
+        5000,
+        15000,
+        45000,
+        150000,
+        450000
     };
 
     [SerializeField]
     public readonly List<int> earnedMoneyTable = new()
     {
         30,
-        60,
         100,
-        200,
+        300,
         1000,
-        8000,
-        10000,
-        25000,
-        100000,
-        600000,
-        1000000
+        4000,
+        15000,
+        50000,
+        150000,
+        5000000,
+        15000000,
+        500000000
     };
 
     [SerializeField]
     public readonly List<int> healTable = new()
     {
-        1,
         2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
         10,
-        11
+        30,
+        100,
+        120,
+        400,
+        1200,
+        3800,
+        12000,
+        40000,
+        150000
+    };
+
+    [SerializeField]
+    public readonly List<int> HPTable = new()
+    {
+        100,
+        300,
+        1500,
+        4500,
+        15000,
+        45000,
+        150000,
+        450000,
+        1500000,
+        5000000,
+        15000000
     };
 
     public StageState()
