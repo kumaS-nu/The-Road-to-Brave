@@ -76,21 +76,40 @@ public class EnhancementManager : MonoBehaviour
         {
             healButton.interactable = true;
         }
+        else
+        {
+            healButton.interactable = false;
+        }
+
         if(stageState.IsAvailableUpgradeEnhancement(EnhancementContent.EnemyStrength) && !enemyEnforceMax)
         {
             enemyEnforceButton.interactable = true;
+        }else
+        {
+            enemyEnforceButton.interactable = false;
         }
+
         if(stageState.IsAvailableUpgradeEnhancement(EnhancementContent.EnemyEncount) && !enemyNumMax)
         {
             enemyNumButton.interactable = true;
+        } else
+        {
+            enemyNumButton.interactable = false;
         }
+
         if(stageState.IsAvailableUpgradeEnhancement(EnhancementContent.Cheer) && !cheerMax)
         {
             cheerButton.interactable = true;
+        } else
+        {
+            cheerButton.interactable = false;
         }
         if(stageState.IsAvailableUpgradeEnhancement(EnhancementContent.Armor)&& !hPMax)
         {
             hpButton.interactable = true;
+        } else
+        {
+            hpButton.interactable = false;
         }
     }
 
