@@ -30,10 +30,10 @@ public sealed class StageState
     [SerializeField]
     public readonly List<long> costTable = new()
     { 
-        1000,
-        5000,
-        25000,
-        80000,
+        300,
+        2000,
+        10000,
+        45000,
         200000,
         700000,
         2000000,
@@ -112,6 +112,15 @@ public sealed class StageState
         Money = 0;
         EnhancementLevel = new Dictionary<EnhancementContent, int>();
         foreach(EnhancementContent content in Enum.GetValues(typeof(EnhancementContent)))
+        {
+            EnhancementLevel[content] = 0;
+        }
+    }
+
+    public void Init()
+    {
+        Money = 0;
+        foreach (EnhancementContent content in Enum.GetValues(typeof(EnhancementContent)))
         {
             EnhancementLevel[content] = 0;
         }

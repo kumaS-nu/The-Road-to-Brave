@@ -21,5 +21,6 @@ public class DisplayResult : MonoBehaviour
             score[i].text = ScoreLogger.m_log[i].Item1.ToString();
             time[i].text = ScoreLogger.m_log[i].Item2.ToString("g");
         }
+        StageState.Instance.Init();
     }
 }
