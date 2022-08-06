@@ -1913,7 +1913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23388ef4e1b42c44bb523493f19c93f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _braveHp: {fileID: 0}
+  _braveHp: {fileID: 5230540769888231968}
   _animator: {fileID: 5230540769888231969}
 --- !u!95 &5230540769888231969
 Animator:
