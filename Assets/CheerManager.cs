@@ -60,6 +60,6 @@ public class CheerManager : MonoBehaviour
         speedUpAmount += 0.1f;
         damageReduceAmount += 0.01f;
         cheerButton.interactable = true;
-        cheerButtonText.text = "Clik to cheer your Hero!";
+        cheerButtonText.text = "Click to cheer your Hero!";
     }
 }
