@@ -14,6 +14,9 @@ public class CheerManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI cheerButtonText;
     [SerializeField] private RectTransform audiences;
 
+    [SerializeField] private ParticleSystem particle;
+    [SerializeField] private ParticleSystem particle2;
+
     private float speedUpAmount = 0.1f;
     private float damageReduceAmount = 0.03f;
     private float cheerDuration = 1.0f;
@@ -33,6 +36,8 @@ public class CheerManager : MonoBehaviour
                 braveHp._currentDamageDown -= damageReduceAmount;
             }
             clickNum++;
+            particle.Play();
+            particle2.Play();
         })
         .Delay(TimeSpan.FromSeconds(1.0f))
         .Subscribe(_ => {
