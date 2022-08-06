@@ -28,7 +28,7 @@ public class BraveHittable : MonoBehaviour
 
         var value = collision.gameObject.GetComponent<EnemyParamator>().DamageValue;
         
-        //とりあえず当たった敵になにかしたいときは下のDestroyをコメントアウトしてください。
+        //当たった敵になにかしたいときは下のDestroyをコメントアウトしてください。
         Destroy(collision.gameObject);
 
         _braveHp!.Damage(value);
