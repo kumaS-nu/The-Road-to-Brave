@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1161,75 +1161,75 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 154366607, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 154366607, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 486850873, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 486850873, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 882309231, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 882309231, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1099032109, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1099032109, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1135398004, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1135398004, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1282592129, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1282592129, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1710696481, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1710696481, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2071073673, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2071073673, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2120979392, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2120979392, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2026373168575076120, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
@@ -1294,32 +1294,32 @@ PrefabInstance:
     - target: {fileID: 2026373169557670991, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2026373169557670991, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6100170704498196771, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6100170704498196771, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7479853344205201455, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7479853344205201455, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
