@@ -38,7 +38,7 @@ public class EnemyManager : MonoBehaviour
             sponeInterval = sponeInterval < 0.01 ? 0.01 : sponeInterval;
             await UniTask.Delay(TimeSpan.FromSeconds(sponeInterval));
             var point = DiscreteUniform.Sample(0, spornPoints.Count - 1);
-            m_popedEnemys.Add(Instantiate(enemysPrefab[StageState.Instance.EnhancementLevel[EnhancementContent.EnemyStrength]], spornPoints[point]));
+            m_popedEnemys.Add(Instantiate(enemysPrefab[StageState.Instance.EnhancementLevel[EnhancementContent.EnemyStrength]], spornPoints[point].position, Quaternion.identity));
 ;        }
     }
 
