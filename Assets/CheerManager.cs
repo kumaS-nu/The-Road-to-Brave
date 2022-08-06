@@ -44,10 +44,7 @@ public class CheerManager : MonoBehaviour
         })
         .AddTo(this);
     }
-    private void Update()
-    {
-        Debug.Log(braveHp._currentDamageDown);
-    }
+
 
 
     public void OnClikCheerLevelUp()
