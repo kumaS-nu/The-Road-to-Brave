@@ -33,7 +33,7 @@ public class EnemyManager : MonoBehaviour
     {
         while (true)
         {
-            var baseSponeInterval = baseRepopInterval / StageState.Instance.EnhancementLevel[EnhancementContent.EnemyEncount];
+            var baseSponeInterval = baseRepopInterval / (StageState.Instance.EnhancementLevel[EnhancementContent.EnemyEncount] + 1);
             var sponeInterval = Normal.Sample(baseSponeInterval, baseRepopInterval / 5);
             sponeInterval = sponeInterval < 0.01 ? 0.01 : sponeInterval;
             await UniTask.Delay(TimeSpan.FromSeconds(sponeInterval));

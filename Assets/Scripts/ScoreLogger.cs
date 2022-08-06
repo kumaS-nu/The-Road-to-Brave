@@ -2,9 +2,11 @@ using Cysharp.Threading.Tasks;
 
 using System;
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ScoreLogger : MonoBehaviour
 {
@@ -12,12 +14,12 @@ public class ScoreLogger : MonoBehaviour
     private Timer timer;
 
     [SerializeField]
-    private TextMesh mesh;
+    private TextMeshProUGUI mesh;
 
     [SerializeField]
     private Image background; 
 
-    public static Dictionary<int, TimeSpan> m_log;
+    public static List<(int, TimeSpan)> m_log;
 
     private int m_nextCheckPoint = 100;
 
@@ -30,9 +32,9 @@ public class ScoreLogger : MonoBehaviour
     {
         if (m_nextCheckPoint <= StageState.Instance.Money)
         {
-            m_log[m_nextCheckPoint] = timer.ElapsedTime;
-            Display(m_nextCheckPoint, m_log[m_nextCheckPoint].ToString("g")).Forget();
-            m_nextCheckPoint *= 10;
+            m_log.Add((m_nextCheckPoint, timer.ElapsedTime));
+            Display(m_nextCheckPoint, m_log.Last().Item2.ToString("g")).Forget();
+            m_nextCheckPoint *= 100;
         }
     }
 
