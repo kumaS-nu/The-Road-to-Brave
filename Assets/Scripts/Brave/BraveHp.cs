@@ -94,9 +94,11 @@ public class BraveHp : MonoBehaviour, ICheere
 
     public void HpUpdate()
     {
-        _initialHp += 10;
+
+        var temp = _initialHp;
+        _initialHp = StageState.Instance.HPTable[StageState.Instance.EnhancementLevel[EnhancementContent.Armor]];
         _initialHptext!.text = _initialHp.ToString();
-        _currentHp += 10;
+        _currentHp += _initialHp - temp;
         _currentHpText!.text = _currentHp.ToString();
         _hpSlider.value = (float)_currentHp / (float)_initialHp;
     }
