@@ -60,7 +60,7 @@ public class CheerManager : MonoBehaviour
     private IEnumerator EnableCheerButton()
     {
         yield return new WaitForSeconds(1.0f);
-        speedUpAmount += 0.05f;
+        speedUpAmount += 0.1f;
         damageReduceAmount += 0.01f;
         cheerButton.interactable = true;
         cheerButtonText.text = "Clik to cheer your Hero!";
