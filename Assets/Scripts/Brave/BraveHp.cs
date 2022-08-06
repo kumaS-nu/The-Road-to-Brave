@@ -78,6 +78,7 @@ public class BraveHp : MonoBehaviour, ICheere
     private void Death()
     {
         gameObject.layer = LayerMask.NameToLayer("God");
+        StageState.Instance.BraveDeath();
         _deathSound?.Play();
         _animator.SetTrigger("Death");
         _braveController!.BraveMove.Death();

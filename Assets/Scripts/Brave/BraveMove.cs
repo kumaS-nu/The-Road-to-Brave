@@ -48,7 +48,6 @@ public class BraveMove : MonoBehaviour, ICheere
 
     public void Death()
     {
-        Debug.Log("kill");
         MoveTween.Kill();
     }
 
