@@ -4,20 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
 using System;
-
+using TMPro;
 public class CheerManager : MonoBehaviour
 {
     [SerializeField] private Button cheerButton;
     [SerializeField] private BraveMove braveMove;
     [SerializeField] private BraveHp braveHp;
 
-    //player の変数に変更する必要あり
-    public float speed;
-    public float damageCut;
+    [SerializeField] private TextMeshProUGUI cheerButtonText;
 
-    public float speedUpAmount = 0.1f;
-    public float damageReduceAmount = 0.05f;
-    public float cheerDuration = 1.0f;
+    private float speedUpAmount = 0.1f;
+    private float damageReduceAmount = 0.02f;
+    private float cheerDuration = 1.0f;
 
     private void Start()
     {
@@ -41,9 +39,30 @@ public class CheerManager : MonoBehaviour
 
             if (braveHp != null)
             {
-                braveHp._currentDamageDown -= damageReduceAmount;
+                braveHp._currentDamageDown += damageReduceAmount;
             }
         })
         .AddTo(this);
+    }
+    private void Update()
+    {
+        Debug.Log(braveHp._currentDamageDown);
+    }
+
+
+    public void OnClikCheerLevelUp()
+    {
+        cheerButtonText.text = "Cheer Level Up!!!";
+        cheerButton.interactable = false;
+        StartCoroutine(nameof(EnableCheerButton));
+    }
+
+    private IEnumerator EnableCheerButton()
+    {
+        yield return new WaitForSeconds(1.0f);
+        speedUpAmount += 0.05f;
+        damageReduceAmount += 0.01f;
+        cheerButton.interactable = true;
+        cheerButtonText.text = "Clik to cheer your Hero!";
     }
 }

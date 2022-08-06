@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 5975857457798387311}
   - component: {fileID: 5975857457798387310}
   - component: {fileID: 5975857457798387305}
+  - component: {fileID: 1487027172}
   m_Layer: 5
   m_Name: CheerButton
   m_TagString: Untagged
@@ -258,6 +259,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1487027172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975857457798387307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da65e8d2659c16a41b5c96843b9dc68e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cheerButton: {fileID: 5975857457798387305}
+  braveMove: {fileID: 0}
+  braveHp: {fileID: 0}
+  cheerButtonText: {fileID: 5975857457155532835}
 --- !u!1 &7416212795418104681
 GameObject:
   m_ObjectHideFlags: 0

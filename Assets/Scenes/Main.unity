@@ -204,7 +204,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 41e46b06c10cfce4fbf3f9079294dfa2, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -78059,12 +78059,12 @@ PrefabInstance:
     - target: {fileID: 2026373169557670991, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2026373169557670991, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2951971459667083901, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
@@ -78074,53 +78074,27 @@ PrefabInstance:
     - target: {fileID: 7479853344205201455, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7479853344205201455, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
---- !u!1 &1487027168 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5975857457798387307, guid: 1c8217146a88f6c478987b6c1330c603,
+--- !u!114 &1487027172 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1487027172, guid: 1c8217146a88f6c478987b6c1330c603,
     type: 3}
   m_PrefabInstance: {fileID: 5975857456657563242}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1487027169 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5975857457798387305, guid: 1c8217146a88f6c478987b6c1330c603,
-    type: 3}
-  m_PrefabInstance: {fileID: 5975857456657563242}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1487027168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1487027172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1487027168}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da65e8d2659c16a41b5c96843b9dc68e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cheerButton: {fileID: 1487027169}
-  braveMove: {fileID: 60226403}
-  braveHp: {fileID: 60226405}
-  speed: 0
-  damageCut: 0
-  speedUpAmount: 0.1
-  damageReduceAmount: 0.05
-  cheerDuration: 1
 --- !u!1 &1823595710
 GameObject:
   m_ObjectHideFlags: 0
@@ -78218,6 +78192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57895816959a77f41b846fc0aae897bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 100488666}
 --- !u!4 &1992365869
 Transform:
   m_ObjectHideFlags: 0
@@ -78657,6 +78632,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2046850961}
     m_Modifications:
+    - target: {fileID: 1487027172, guid: 1c8217146a88f6c478987b6c1330c603, type: 3}
+      propertyPath: braveHp
+      value: 
+      objectReference: {fileID: 60226405}
+    - target: {fileID: 1487027172, guid: 1c8217146a88f6c478987b6c1330c603, type: 3}
+      propertyPath: braveMove
+      value: 
+      objectReference: {fileID: 60226403}
     - target: {fileID: 5975857457798387304, guid: 1c8217146a88f6c478987b6c1330c603,
         type: 3}
       propertyPath: m_Pivot.x
@@ -78766,11 +78749,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CheerButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 5975857457798387307, guid: 1c8217146a88f6c478987b6c1330c603,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c8217146a88f6c478987b6c1330c603, type: 3}
