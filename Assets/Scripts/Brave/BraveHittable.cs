@@ -13,7 +13,7 @@ public class BraveHittable : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Attack();
+            Attack(collision);
         }
 
         if(collision.gameObject.tag == "Heal")
@@ -22,14 +22,22 @@ public class BraveHittable : MonoBehaviour
         }
     }
 
-    public void Attack()
+    public void Attack(Collision2D collision)
     {
         _animator.SetTrigger("Attack1");
+
+        var value = collision.gameObject.GetComponent<EnemyParamator>().DamageValue;
+        
+        //当たった敵になにかしたいときは下のDestroyをコメントアウトしてください。
+        Destroy(collision.gameObject);
+
+        _braveHp!.Damage(value);
     }
 
     private void Heal(Collision2D collision)
     {
         var value = collision.gameObject.GetComponent<HealItem>().HealValue;
+        Destroy(collision.gameObject);
 
         _braveHp!.Heal(value);
     }
