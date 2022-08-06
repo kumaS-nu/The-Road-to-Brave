@@ -20,7 +20,7 @@ public class SpawnPortion : MonoBehaviour
     {
         foreach(var p in spornPoints)
         {
-            Instantiate(portions[StageState.Instance.EnhancementLevel[EnhancementContent.Heal]], p);
+            Instantiate(portions[StageState.Instance.EnhancementLevel[EnhancementContent.Heal]], p.position, Quaternion.identity);
         }
     }
 }
