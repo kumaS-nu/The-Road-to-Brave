@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4279800798966667533}
   - component: {fileID: 8900615295046668887}
   - component: {fileID: 1410662818768585234}
+  - component: {fileID: 683780323408018235}
   m_Layer: 0
   m_Name: Enemy (18)
   m_TagString: Enemy
@@ -138,3 +139,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Money: 1000
   DamageValue: 5
+--- !u!114 &683780323408018235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6096117989089544459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63731eff425e6d640adaa9d459fa2cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
