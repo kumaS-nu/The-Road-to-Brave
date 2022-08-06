@@ -43,9 +43,57 @@ public sealed class StageState
         10000000000000
     };
 
+    [SerializeField]
+    public readonly List<int> damageTable = new()
+    {
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55
+    };
+
+    [SerializeField]
+    public readonly List<int> earnedMoneyTable = new()
+    {
+        30,
+        60,
+        100,
+        200,
+        1000,
+        8000,
+        10000,
+        25000,
+        100000,
+        600000,
+        1000000
+    };
+
+    [SerializeField]
+    public readonly List<int> healTable = new()
+    {
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    };
+
     public StageState()
     {
-        Money = 6667776666666;
+        Money = 0;
         EnhancementLevel = new Dictionary<EnhancementContent, int>();
         foreach(EnhancementContent content in Enum.GetValues(typeof(EnhancementContent)))
         {

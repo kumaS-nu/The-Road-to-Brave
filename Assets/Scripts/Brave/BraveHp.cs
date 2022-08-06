@@ -56,7 +56,7 @@ public class BraveHp : MonoBehaviour, ICheere
     public void Heal(int heal)
     {
         _healSound?.Play();
-        var finalHeal = Mathf.Min(_initialHp, _initialHp + heal);
+        var finalHeal = Mathf.Min(_initialHp, _currentHp + heal);
         _currentHp = finalHeal;
         UISet(_currentHp);
     }

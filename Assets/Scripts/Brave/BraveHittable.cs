@@ -29,10 +29,11 @@ public class BraveHittable : MonoBehaviour
     {
         _animator.SetTrigger("Attack1");
 
-        var param = collision.gameObject.GetComponent<EnemyParamator>();
-        var damageValue = param.DamageValue;
-        var getManey = param.GetMoney;
-        
+        var level = StageState.Instance.EnhancementLevel[EnhancementContent.EnemyStrength];
+
+        var damageValue = StageState.Instance.damageTable[level];//param.DamageValue;
+        var getManey = StageState.Instance.earnedMoneyTable[level];
+
         //当たった敵になにかしたいときは下のDestroyをコメントアウトしてください。
         Destroy(collision.gameObject);
 
@@ -43,7 +44,9 @@ public class BraveHittable : MonoBehaviour
     private void Heal(Collision2D collision)
     {
 
-        var value = (StageState.Instance.EnhancementLevel[EnhancementContent.Heal] + 1) * 3;
+        
+        var value = StageState.Instance.damageTable[StageState.Instance.EnhancementLevel[EnhancementContent.Heal]];
+        
         Destroy(collision.gameObject);
 
         _braveHp!.Heal(value);
