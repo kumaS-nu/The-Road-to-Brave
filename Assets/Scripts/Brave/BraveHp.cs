@@ -36,7 +36,7 @@ public class BraveHp : MonoBehaviour, ICheere
 
     private void Init()
     {
-        _currentDamageDown = 0;
+        _currentDamageDown = 1.0f;
 
         _currentHp = _initialHp;
         _initialHptext!.text = _initialHp.ToString();
@@ -68,6 +68,15 @@ public class BraveHp : MonoBehaviour, ICheere
         _currentHpText!.text = hp.ToString();
 
         _hpSlider.value = (float)hp / (float)_initialHp;
+    }
+
+    public void HpUpdate()
+    {
+        _initialHp += 10;
+        _initialHptext!.text = _initialHp.ToString();
+        _currentHp += 10;
+        _currentHpText!.text = _currentHp.ToString();
+        _hpSlider.value = (float)_currentHp / (float)_initialHp;
     }
 
     public void OnCheere()
