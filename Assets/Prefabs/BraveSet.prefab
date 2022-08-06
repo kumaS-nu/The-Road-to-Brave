@@ -814,7 +814,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5230540769888231973}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BraveController, Assembly-CSharp
         m_MethodName: Cheere
         m_Mode: 1
@@ -2186,7 +2186,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1769490319851883217}
-  - component: {fileID: 5230540769888231973}
   - component: {fileID: 5230540769888231975}
   - component: {fileID: 5230540769888231968}
   - component: {fileID: 5230540769888231972}
@@ -2217,20 +2216,6 @@ Transform:
   m_Father: {fileID: 493940663241138595}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5230540769888231973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4291647996611298950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36bed0cee62a1844490be001818d410e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _braveHp: {fileID: 5230540769888231968}
-  BraveMove: {fileID: 5230540769888231975}
 --- !u!114 &5230540769888231975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2288,7 +2273,7 @@ MonoBehaviour:
   _respawnTime: 4
   _damageDown: 1
   _damageDownTime: 0.1
-  _braveController: {fileID: 5230540769888231973}
+  _braveController: {fileID: 0}
   _deathSound: {fileID: 796388565418824707}
   _damageSound: {fileID: 7923518809535455076}
   _attackSound: {fileID: 5880477747706038557}
@@ -2377,7 +2362,7 @@ SpriteRenderer:
   m_Size: {x: 0.3, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &1177415927773200307
