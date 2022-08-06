@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyParamator : MonoBehaviour
 {
     [SerializeField]
-    public int Money = 1000;
+    public int GetMoney = 1000;
     [SerializeField]
     public int DamageValue = 5;
 }
