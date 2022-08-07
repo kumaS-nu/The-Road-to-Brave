@@ -46,17 +46,17 @@ public sealed class StageState
     [SerializeField]
     public readonly List<int> damageTable = new()
     {
-        5,
-        20,
-        50,
-        150,
-        500,
-        1500,
-        5000,
-        15000,
-        45000,
-        150000,
-        450000
+        10,
+        30,
+        90,
+        270,
+        810,
+        2430,
+        7290,
+        21870,
+        65610,
+        196830,
+        590490
     };
 
     [SerializeField]
@@ -78,17 +78,17 @@ public sealed class StageState
     [SerializeField]
     public readonly List<int> healTable = new()
     {
-        2,
-        10,
-        30,
-        100,
-        120,
-        400,
+        7,
+        25,
+        43,
+        86,
+        172,
+        330,
+        645,
         1200,
-        3800,
-        12000,
-        40000,
-        150000
+        2285,
+        4285,
+        7857
     };
 
     [SerializeField]
@@ -96,15 +96,15 @@ public sealed class StageState
     {
         100,
         300,
-        1500,
-        4500,
-        15000,
-        45000,
-        150000,
-        450000,
-        1500000,
-        5000000,
-        15000000
+        700,
+        1000,
+        1800,
+        3500,
+        6500,
+        13000,
+        25500,
+        51000,
+        100000
     };
 
     public StageState()

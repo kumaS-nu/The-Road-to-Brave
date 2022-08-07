@@ -120,7 +120,8 @@ public class BraveHp : MonoBehaviour
         while (IsLive)
         {
             //Max -0.5 to -0.5 * 0.6, -0.5 * 0.6 * 0.6 ...
-            _currentDamageDown = 1 - _cheerManager.GetCheerPower() * (1 - Mathf.Exp(-0.7f - 0.5f * StageState.Instance.EnhancementLevel[EnhancementContent.Cheer]));
+            var cheerPower = Mathf.Max(0.00001f, _cheerManager.GetCheerPower());
+            _currentDamageDown = 1 - Mathf.Exp(Mathf.Log(1 - Mathf.Exp(-0.7f - 0.5f * StageState.Instance.EnhancementLevel[EnhancementContent.Cheer])) / cheerPower);
             await UniTask.Yield();
         }
     }
