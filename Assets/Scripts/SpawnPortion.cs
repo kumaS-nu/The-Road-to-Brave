@@ -20,7 +20,10 @@ public class SpawnPortion : MonoBehaviour
     {
         foreach(var p in spornPoints)
         {
-            Instantiate(portions[StageState.Instance.EnhancementLevel[EnhancementContent.Heal]], p.position, Quaternion.identity);
+            var portion = Instantiate(portions[StageState.Instance.EnhancementLevel[EnhancementContent.Heal]], p.position, Quaternion.identity);
+            float scale = 0.4f + Mathf.InverseLerp(0, 10, StageState.Instance.EnhancementLevel[EnhancementContent.Heal]) * 0.3f;
+            portion.transform.localScale = new Vector3(scale, scale, scale);
+
         }
     }
 }
