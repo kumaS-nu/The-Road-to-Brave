@@ -54,10 +54,10 @@ public class CheerManager : MonoBehaviour
 
     public async void OnClikCheerLevelUp()
     {
-        cheerButtonText.text = "Cheer Level Up!!!";
+        cheerButtonText.text = "応援の効果UP！！";
         cheerButton.interactable = false;
         await UniTask.Delay(1000);
         cheerButton.interactable = true;
-        cheerButtonText.text = "Click to cheer your Hero!";
+        cheerButtonText.text = "クリックで勇者を応援！！";
     }
 }
