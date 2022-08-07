@@ -48,16 +48,24 @@ public class BraveMove : MonoBehaviour
             _points.Add(point.position);
         }
 
-        Move(_points.ToArray());
+        //Move(_points.ToArray());
+        MoveTween = transform.DOLocalPath(_points.ToArray(), _roundTime, PathType.CatmullRom)
+                    .OnPlay(() => _spawnPortion.Spawn())
+                    .SetEase(Ease.Linear)
+                    .SetOptions(false, AxisConstraint.Z)
+                    .SetLoops(-1)
+                    .OnStepComplete(() => _spawnPortion.Spawn());
     }
 
     public void Death()
     {
-        MoveTween.Kill();
+        MoveTween.Pause();
+        Debug.Log("Dead");
     }
 
     public void Respawn()
     {
+        Debug.Log("Resporn");
         transform.position = _initPosition;
         _spriteRenderer.flipX = true;
         Move(_points.ToArray());
@@ -66,12 +74,14 @@ public class BraveMove : MonoBehaviour
     public Tween MoveTween;
     private void Move(Vector3[] pos)
     {
+        MoveTween.Restart();
+        /*
         MoveTween = transform.DOLocalPath(pos, _roundTime, PathType.CatmullRom)
                     .OnPlay(() => _spawnPortion.Spawn())
                     .SetEase(Ease.Linear)
                     .SetOptions(false, AxisConstraint.Z)
                     .SetLoops(-1)
-                    .OnStepComplete(() => _spawnPortion.Spawn());
+                    .OnStepComplete(() => _spawnPortion.Spawn());*/
     }
 
     public void SetRoundTime(float roundTime)
