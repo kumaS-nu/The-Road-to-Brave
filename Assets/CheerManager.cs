@@ -41,9 +41,12 @@ public class CheerManager : MonoBehaviour
     private void Update()
     {
         var posY = Mathf.Lerp(-250f, -150f, GetCheerPower());
-        Vector3 pos = audiences.anchoredPosition;
-        pos.y = posY;
-        audiences.anchoredPosition = pos;
+        if (audiences != null)
+        {
+            Vector3 pos = audiences.anchoredPosition;
+            pos.y = posY;
+            audiences.anchoredPosition = pos;
+        }
     }
 
     public float GetCheerPower()
