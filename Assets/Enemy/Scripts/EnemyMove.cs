@@ -19,7 +19,7 @@ public class EnemyMove : MonoBehaviour
         Init();
     }
 
-    private void Init()
+    public void Init()
     {
         _moveDirection = Vector3.zero;
 

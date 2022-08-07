@@ -73,9 +73,13 @@ public class BraveHp : MonoBehaviour
         var finalDamage = damage * _currentDamageDown;
         _currentHp -= (int)finalDamage;
         UISet(_currentHp);
-        if(_currentHp <= 0)
+        if (_currentHp <= 0)
         {
             _ = Death();
+        }
+        else
+        {
+            _animator.SetTrigger("Attack1");
         }
     }
 

@@ -8,6 +8,8 @@ public class BraveHittable : MonoBehaviour
     BraveHp _braveHp;
     [SerializeField]
     Animator _animator;
+    [SerializeField]
+    private EnemyManager _enemyManager;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -27,7 +29,6 @@ public class BraveHittable : MonoBehaviour
 
     public void Attack(Collider2D collision)
     {
-        _animator.SetTrigger("Attack1");
 
         var level = StageState.Instance.EnhancementLevel[EnhancementContent.EnemyStrength];
 
@@ -35,7 +36,7 @@ public class BraveHittable : MonoBehaviour
         var getManey = StageState.Instance.earnedMoneyTable[level];
 
         //当たった敵になにかしたいときは下のDestroyをコメントアウトしてください。
-        Destroy(collision.gameObject);
+        _enemyManager.KillEnemy(collision.gameObject);
 
         _braveHp!.Damage(damageValue);
         StageState.Instance.EarnedMoney(getManey);
