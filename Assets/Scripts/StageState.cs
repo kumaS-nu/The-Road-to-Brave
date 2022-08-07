@@ -88,7 +88,7 @@ public sealed class StageState
         1400,
         2800,
         5000,
-        9000
+        8500
     };
 
     [SerializeField]
