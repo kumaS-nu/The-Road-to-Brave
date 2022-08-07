@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MathNet.Numerics.Distributions;
 using System.Linq;
+using System.Threading;
 
 /// <summary>
 /// 敵のポップを制御．
@@ -24,6 +25,7 @@ public class EnemyManager : MonoBehaviour
     private int m_beforeEnemyStrength;
     private List<GameObject> m_popedEnemys = new List<GameObject>();
     private Stack<GameObject> m_stackedEnemy = new Stack<GameObject>();
+    private CancellationTokenSource m_cancelSource = new CancellationTokenSource();
 
     private List<int> maxCount = new List<int>()
     {
@@ -43,13 +45,14 @@ public class EnemyManager : MonoBehaviour
     private void Start()
     {
         m_beforeEnemyStrength = StageState.Instance.EnhancementLevel[EnhancementContent.EnemyStrength];
-        _ = GenerateEnemy();
+        _ = GenerateEnemy(m_cancelSource.Token);
     }
 
-    private async UniTask GenerateEnemy()
+    private async UniTask GenerateEnemy(CancellationToken token)
     {
         while (true)
         {
+            token.ThrowIfCancellationRequested();
             var baseSponeInterval = baseRepopInterval / (StageState.Instance.EnhancementLevel[EnhancementContent.EnemyEncount] + 1);
             var sponeInterval = Normal.Sample(baseSponeInterval, baseRepopInterval / 5);
             sponeInterval = sponeInterval < 0.01 ? 0.01 : sponeInterval;
@@ -110,5 +113,10 @@ public class EnemyManager : MonoBehaviour
             m_popedEnemys.Add(enemy);
             return;
         }
+    }
+
+    private void OnDestroy()
+    {
+        m_cancelSource.Cancel();
     }
 }

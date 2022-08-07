@@ -1419,6 +1419,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -25
       objectReference: {fileID: 0}
+    - target: {fileID: 3847620845337438023, guid: 90fb3803c95732a448e7777a035fe791,
+        type: 3}
+      propertyPath: lawnList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3847620845337438137, guid: 90fb3803c95732a448e7777a035fe791,
         type: 3}
       propertyPath: m_Pivot.x
@@ -4226,75 +4231,75 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 154366607, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 154366607, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 486850873, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 486850873, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 882309231, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 882309231, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1099032109, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1099032109, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1135398004, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1135398004, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1282592129, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1282592129, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1710696481, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1710696481, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2071073673, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2071073673, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2120979392, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2120979392, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2026373168575076120, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
@@ -4374,32 +4379,32 @@ PrefabInstance:
     - target: {fileID: 2026373169557670991, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2026373169557670991, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6100170704498196771, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6100170704498196771, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7479853344205201455, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7479853344205201455, guid: bc1f1035b3db68148b752bf179c91fcc,
         type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0.03333336
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc1f1035b3db68148b752bf179c91fcc, type: 3}
@@ -4923,6 +4928,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1812280235}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1812280238 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1487027172, guid: 1c8217146a88f6c478987b6c1330c603,
+    type: 3}
+  m_PrefabInstance: {fileID: 1812280235}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812280236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da65e8d2659c16a41b5c96843b9dc68e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1920907479
 GameObject:
   m_ObjectHideFlags: 0
@@ -5161,6 +5178,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1955995234}
   m_CullTransparentMesh: 1
+--- !u!114 &2037081973 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 564374022655371582, guid: a76badfc72a0ad941a3f8d6c3a461e75,
+    type: 3}
+  m_PrefabInstance: {fileID: 2037914702}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2037914702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5325,6 +5354,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a76badfc72a0ad941a3f8d6c3a461e75, type: 3}
+--- !u!114 &2037914703 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 564374021024242665, guid: a76badfc72a0ad941a3f8d6c3a461e75,
+    type: 3}
+  m_PrefabInstance: {fileID: 2037914702}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2037914704 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 564374021417954443, guid: a76badfc72a0ad941a3f8d6c3a461e75,
+    type: 3}
+  m_PrefabInstance: {fileID: 2037914702}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2094925835
 GameObject:
   m_ObjectHideFlags: 0
@@ -6143,11 +6196,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1769490320746680339}
-  - component: {fileID: 5230540770783033572}
   - component: {fileID: 5230540770783033571}
   - component: {fileID: 4950580310494898171}
   - component: {fileID: 1177415926469125489}
   - component: {fileID: 1353939973754114386}
+  - component: {fileID: 5230540770783033572}
+  - component: {fileID: 5230540770783033573}
   m_Layer: 0
   m_Name: Brave
   m_TagString: Player
@@ -6252,7 +6306,7 @@ SpriteRenderer:
   m_Size: {x: 0.3, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &4968117835064290231
@@ -6299,9 +6353,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4291647995735317572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0edf3b2c45c23d9448897429918572ed, type: 3}
+  m_Script: {fileID: 11500000, guid: a4afbc5f40bfce143b9d21cb12347259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speedUpTime: 0.1
+  _speedUpScale: 1.2
+  _braveHp: {fileID: 5230540770783033573}
+  _cheerManager: {fileID: 1812280238}
   _initialRoundTime: 15
   _movePoints:
   - {fileID: 6658188889834931003}
@@ -6322,9 +6380,34 @@ MonoBehaviour:
   - {fileID: 565072183283937553}
   - {fileID: 8316582085194525382}
   _mostLeftPositon: {fileID: 5267080076229289478}
-  _mostRightPositon: {fileID: 494355472121011686}
+  _mostRightPositon: {fileID: 7011237884150864703}
   _spriteRenderer: {fileID: 4950580310494898171}
   _spawnPortion: {fileID: 0}
+--- !u!114 &5230540770783033573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4291647995735317572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4649ca29a52e30841b244e1fcccf74e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialHp: 100
+  _initialHptext: {fileID: 2037914704}
+  _currentHpText: {fileID: 2037914703}
+  _hpSlider: {fileID: 2037081973}
+  _animator: {fileID: 0}
+  _respawnTime: 4
+  _cheerManager: {fileID: 1812280238}
+  _braveMove: {fileID: 5230540770783033572}
+  _deathSound: {fileID: 0}
+  _damageSound: {fileID: 0}
+  _attackSound: {fileID: 0}
+  _healSound: {fileID: 0}
+  _currentDamageDown: 1
 --- !u!4 &5267080076229289478
 Transform:
   m_ObjectHideFlags: 0
