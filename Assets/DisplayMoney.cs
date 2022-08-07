@@ -18,7 +18,7 @@ public class DisplayMoney : MonoBehaviour
     private void Update()
     {
         if (stageState == null) return;
-        text.text = $"      Money:\n<sprite=0>{stageState.Money.ToString()}";
+        text.text = $"      ‚¨‹à:\n<sprite=0>{stageState.Money.ToString()}";
 
     }
 }

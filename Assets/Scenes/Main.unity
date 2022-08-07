@@ -7491,7 +7491,7 @@ PrefabInstance:
     - target: {fileID: 5975857457155532835, guid: 1c8217146a88f6c478987b6c1330c603,
         type: 3}
       propertyPath: m_text
-      value: Click to cheer your Hero!
+      value: "\u30AF\u30EA\u30C3\u30AF\u3067\u52C7\u8005\u3092\u5FDC\u63F4\uFF01\uFF01"
       objectReference: {fileID: 0}
     - target: {fileID: 5975857457155532835, guid: 1c8217146a88f6c478987b6c1330c603,
         type: 3}
