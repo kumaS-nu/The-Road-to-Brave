@@ -11,6 +11,18 @@ public class BraveHittable : MonoBehaviour
     [SerializeField]
     private EnemyManager _enemyManager;
 
+
+    [SerializeField]
+    private GameObject canvas;
+    [SerializeField]
+    private GameObject EarnedMoneyUI;
+
+    private Camera cam;
+    private void Start()
+    {
+        cam = Camera.main;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Heal")
@@ -35,11 +47,17 @@ public class BraveHittable : MonoBehaviour
         var damageValue = StageState.Instance.damageTable[level];//param.DamageValue;
         var getManey = StageState.Instance.earnedMoneyTable[level];
 
+        var obj = Instantiate(EarnedMoneyUI, Vector3.zero, Quaternion.identity);
+        Vector3 screenPos = cam.WorldToScreenPoint(collision.gameObject.transform.position);
+        obj.transform.SetParent(canvas.transform, false);
+        obj.transform.position = screenPos;
+        
         //当たった敵になにかしたいときは下のDestroyをコメントアウトしてください。
         _enemyManager.KillEnemy(collision.gameObject);
 
         _braveHp!.Damage(damageValue);
         StageState.Instance.EarnedMoney(getManey);
+
     }
 
     private void Heal(Collision2D collision)
